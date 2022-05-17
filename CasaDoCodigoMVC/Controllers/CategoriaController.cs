@@ -37,14 +37,26 @@ namespace CasaDoCodigoMVC.Controllers
             return View(categorias);
         }
 
-        public IActionResult Edit(int id)
+        public IActionResult Edit(long id)
         {
 
             //var produto = categorias.Where(y => y.CategoriaId.Equals(id)).Select(x => x.Nome).ToString();
             //ViewData["Produto"] = produto;
-            var produto = categorias.FindAll(x => x.CategoriaId.Equals(id)).ToList();
+            //var produto = categorias.FindAll(x => x.CategoriaId.Equals(id)).ToList();
 
-            return View(produto) ;
+            return View(categorias.Where(c => c.CategoriaId == id). First()) ;
+        }
+
+        public IActionResult Create(Categoria categoria)
+        {
+            categorias.Add(categoria);
+            categoria.CategoriaId = categorias.Select( c => c.CategoriaId).Max() +1;
+            return View();
+        }
+
+        public IActionResult details(long id)
+        {
+            return View(categorias.Where(c => c.CategoriaId == id).First());
         }
     }
 }
