@@ -1,11 +1,11 @@
 ﻿using CasaDoCodigoMVC.Models;
 using Microsoft.AspNetCore.Mvc;
- 
+
 namespace CasaDoCodigoMVC.Controllers
 {
     public class CategoriaController : Controller
     {
-        private static List<Categoria> categorias = new List<Categoria>()
+        private static IList<Categoria> categorias = new List<Categoria>()
         {
             new Categoria(){
                 CategoriaId = 1,
@@ -16,15 +16,15 @@ namespace CasaDoCodigoMVC.Controllers
                 CategoriaId = 2,
                 Nome = "Monitores"
             },
-            new Categoria() 
-            { 
+            new Categoria()
+            {
                 CategoriaId = 3,
                 Nome = "Impressoras"
             },
             new Categoria()
             {
                 CategoriaId = 4,
-                Nome = "Mouses" 
+                Nome = "Mouses"
             },
             new Categoria(){
                 CategoriaId = 5,
@@ -44,19 +44,27 @@ namespace CasaDoCodigoMVC.Controllers
             //ViewData["Produto"] = produto;
             //var produto = categorias.FindAll(x => x.CategoriaId.Equals(id)).ToList();
 
-            return View(categorias.Where(c => c.CategoriaId == id). First()) ;
+            return View(categorias.Where(c => c.CategoriaId == id).First());
         }
 
         public IActionResult Create(Categoria categoria)
         {
             categorias.Add(categoria);
-            categoria.CategoriaId = categorias.Select( c => c.CategoriaId).Max() +1;
-            return View();
+            categoria.CategoriaId = categorias.Select(c => c.CategoriaId).Max() + 1;
+            return RedirectToAction("Index");
         }
 
-        public IActionResult details(long id)
+        public IActionResult Details(long id)
         {
             return View(categorias.Where(c => c.CategoriaId == id).First());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(Categoria categoria)
+        {
+            categorias.Remove(categorias.Where(c => c.CategoriaId == categoria.CategoriaId).First());
+            return RedirectToAction("Index");
         }
     }
 }
