@@ -1,0 +1,47 @@
+﻿@model List<CasaDoCodigoMVC.Models.Categoria>
+
+@{
+    //var produto = ViewData["Produto"] as Categoria;
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                  @*<@Html.DisplayNameFor(model => model.CategoriaId)*@
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(model => model.Nome)*@
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @*<td>
+                    Produto2: @Model.Nome
+                </td>*@
+                <td>
+                    
+                    @foreach(var p in Model)
+                    {
+                        @p.Nome;
+                    }
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
