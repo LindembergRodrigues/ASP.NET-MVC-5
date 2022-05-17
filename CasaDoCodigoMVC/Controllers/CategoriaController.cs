@@ -59,8 +59,8 @@ namespace CasaDoCodigoMVC.Controllers
             return View(categorias.Where(c => c.CategoriaId == id).First());
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
         public IActionResult Delete(Categoria categoria)
         {
             categorias.Remove(categorias.Where(c => c.CategoriaId == categoria.CategoriaId).First());
