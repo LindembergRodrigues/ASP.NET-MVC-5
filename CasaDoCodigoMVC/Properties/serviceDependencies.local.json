@@ -1,8 +1,13 @@
 {
   "dependencies": {
     "mssql1": {
-      "type": "mssql.local",
+      "ignored": "true",
+      "type": "mssql",
       "connectionId": "ConnectionStrings:CasaDoCodigoMVCContext"
+    },
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:EFContext"
     }
   }
 }
