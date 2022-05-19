@@ -14,6 +14,7 @@ namespace CasaDoCodigoMVC.Data
         {
         }
 
-        public DbSet<CasaDoCodigoMVC.Models.Fabricante>? Fabricante { get; set; }
+        public DbSet<Categoria>? categoria { get; set; }
+        public DbSet<Fabricante>? Fabricante { get; set; }
     }
 }
