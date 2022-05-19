@@ -1,11 +1,12 @@
 ﻿using CasaDoCodigoMVC.Models;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace CasaDoCodigoMVC.Contexts
 {
     public class EFContexts : DbContext 
     {
-        public EFContexts() : base("Asp_Net_MVC_CS") { }
+        public EFContexts(DbContextOptions<EFContexts> option) 
+            : base(option) { }
 
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Fabricante> Fabricantes { get; set; }
