@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿//using Microsoft.EntityFrameworkCore;
 using CasaDoCodigoMVC.Models;
+using System.Data.Entity;
 
 namespace CasaDoCodigoMVC.Data
 {
     public class EFContext : DbContext
     {
-        public EFContext (DbContextOptions<EFContext> options)
-            : base(options)
+        public EFContext() //(DbContextOptions<EFContext> options)
+            : base("BDCasaDoCodigoPDF")
         {
         }
 
