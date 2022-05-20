@@ -1,15 +1,7 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using CasaDoCodigoMVC.Data;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddDbContext<EFContext>(options =>
-
-
-    options.UseSqlServer(builder.Configuration.GetConnectionString("EFContext") ?? throw new InvalidOperationException("Connection string 'EFContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
