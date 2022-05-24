@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<CasaDoCodigoMVC.Models.Categoria>
 @{
-	Layout = null;
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE	html>
 <html>
@@ -11,7 +11,7 @@
 </head>
 <body>
 	<p>
-		@Html.ActionLink("Criar nova categoria",	"Create")
+		<a asp-action="Create">Cadastrar novo </a>
 
 	</p>
 	<table class="table">

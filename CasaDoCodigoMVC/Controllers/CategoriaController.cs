@@ -46,7 +46,12 @@ namespace CasaDoCodigoMVC.Controllers
 
             return View(categorias.Where(c => c.CategoriaId == id).First());
         }
-
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Categoria categoria)
         {
             categorias.Add(categoria);

@@ -1,7 +1,7 @@
 ﻿@model CasaDoCodigoMVC.Models.Categoria
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -32,8 +32,8 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit" ) |
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Editar", "Edit", "Categoria" ) @*| 
+    <a asp-action="Index">Back to List</a>*@
 </div>
 </body>
 </html>

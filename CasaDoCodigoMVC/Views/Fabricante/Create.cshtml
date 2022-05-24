@@ -1,7 +1,7 @@
 ﻿@model CasaDoCodigoMVC.Models.Fabricante
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -36,9 +36,9 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+@*<div>
+    <a asp-action="Index">Menu</a>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
