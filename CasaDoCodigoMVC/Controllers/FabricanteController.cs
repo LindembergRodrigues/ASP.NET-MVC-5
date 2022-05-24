@@ -11,7 +11,7 @@ namespace CasaDoCodigoMVC.Controllers
         private EFContext context = new EFContext();
         public IActionResult Index()
         {
-            return View(context.Fabricante.OrderBy(c => "-" + c.Nome + "-"));
+            return View(context.Fabricante.OrderBy(c => c.Nome + "-"));
         }
 
         public IActionResult Create()
@@ -40,7 +40,7 @@ namespace CasaDoCodigoMVC.Controllers
             }
             return View(fabricante);
         }
-        public IActionResult Edit(long? id)
+        public IActionResult Edit(long id)
         {
             if (id == null)
             {
@@ -63,6 +63,11 @@ namespace CasaDoCodigoMVC.Controllers
 
             return RedirectToAction("Index");
 
+        }
+
+        public IActionResult Details(long id)
+        {
+            return View(context.Fabricante.Find(id));
         }
     }
 }

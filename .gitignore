@@ -215,6 +215,8 @@ ecf/
 rcf/
 
 # Windows Store app package directories and files
+CasaDoCodigoMVC/Data/Content
+CasaDoCodigoMVC/Data/Scripts
 AppPackages/
 BundleArtifacts/
 Package.StoreAssociation.xml
