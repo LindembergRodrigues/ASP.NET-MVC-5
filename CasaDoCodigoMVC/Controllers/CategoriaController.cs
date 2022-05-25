@@ -37,7 +37,7 @@ namespace CasaDoCodigoMVC.Controllers
 
         public IActionResult Index()
         {
-            return View(context.categoria.OrderBy( f => f.Nome));
+            return View(context.Categoria.OrderBy(f => f.Nome));
         }
 
         public IActionResult Edit(long id)
@@ -47,7 +47,7 @@ namespace CasaDoCodigoMVC.Controllers
             //ViewData["Produto"] = produto;
             //var produto = categorias.FindAll(x => x.CategoriaId.Equals(id)).ToList();
 
-            return View(context.categoria.Where(c => c.CategoriaId == id).First());
+            return View(context.Categoria.Where(c => c.CategoriaId == id).First());
         }
         public IActionResult Create()
         {
@@ -58,14 +58,22 @@ namespace CasaDoCodigoMVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Categoria categoria)
         {
-            context.categoria.Add(categoria);
-            context.SaveChanges();
+            using (var _contexto = new EFContext())
+            {
+                _contexto.Categoria.Add(categoria);
+                _contexto.SaveChanges();
+            }
+           // var teste = new Categoria { CategoriaId = 5, Nome = "Teste" };
+            //Console.WriteLine(teste);
+
+           // context.Categoria.Add(teste);
+           // context.SaveChanges();
             return RedirectToAction();
         }
 
         public IActionResult Details(long id)
         {
-            return View(context.categoria.Where(c => c.CategoriaId == id).First());
+            return View(context.Categoria.Where(c => c.CategoriaId == id).First());
         }
 
         //[HttpPost]
@@ -73,7 +81,7 @@ namespace CasaDoCodigoMVC.Controllers
         public IActionResult Delete(long id)
         {
             //var teste = context.categoria.Where(c => c.CategoriaId == id).First();
-            context.categoria.Remove(context.categoria.Find(id));
+            context.Categoria.Remove(context.Categoria.Find(id));
             context.SaveChanges();
 
             return RedirectToAction("Index");
