@@ -23,8 +23,11 @@ namespace CasaDoCodigoMVC.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Fabricante fabricante)
         {
-            context.Fabricante.Add(fabricante);
-            context.SaveChanges();
+            using (var _context = new EFContext())
+            {
+                _context.Fabricante.Add(fabricante);
+                _context.SaveChanges();
+            }
             return RedirectToAction();
         }
 
