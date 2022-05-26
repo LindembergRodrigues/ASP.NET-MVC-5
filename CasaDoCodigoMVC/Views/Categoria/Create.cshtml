@@ -27,9 +27,8 @@
                         var id = 0;
                         if (context.Categoria.Count() != 0)
                         {
-                            id = context.Categoria.Max(c => c.CategoriaId)+1;
+                            id = context.Categoria.Max(c => c.CategoriaId) + 1;
                         }
-
                     }
                     <label asp-for="CategoriaId" class="control-label"> Identificador </label>
                     <input asp-for="CategoriaId" class="form-control" disabled="" placeholder=@id />

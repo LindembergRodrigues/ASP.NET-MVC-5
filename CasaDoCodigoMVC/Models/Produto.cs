@@ -3,12 +3,13 @@
     public class Produto
     {
 
-        public int PrudutoID { get; set; }
-        public String  Nome { get; set; }
+        public int ProdutoID { get; set; }
+        public string  Nome { get; set; }
 
         public int CategoriaId { get; set; }
         public int FabricanteId { get; set; }
-        public Categoria categoria { get; set; }
-        public Fabricante fabricante { get; set; }
+
+        public Categoria Categorias { get; set; }
+        public Fabricante Fabricantes { get; set; }
     }
 }
