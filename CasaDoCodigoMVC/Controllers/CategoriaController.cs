@@ -13,6 +13,12 @@ namespace CasaDoCodigoMVC.Controllers
             return View(context.Categoria.OrderBy(f => f.Nome));
         }
 
+        //public List<Object> ListaObj(Object obj)
+        //{
+        //    var teste = new List<obj>();
+        //    return teste.Select(x => x.last());
+        //}
+ 
         public IActionResult Edit(long id)
         {
 

@@ -6,7 +6,7 @@ namespace CasaDoCodigoMVC.Models
     {
         [Key]
         public int CategoriaId { get; set; }
-        [Required (ErrorMessage = "Informe um nome!")]
+        [Required (ErrorMessage = "Informe um nome para a Categoria")]
         public string Nome{ get; set; }
         public bool IsAtivo { get; set; }
         
